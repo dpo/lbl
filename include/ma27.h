@@ -77,14 +77,14 @@ extern void MA27BD( int *n, int *nz, int *irn, int *jcn,
 extern void MA27CD( int *n, double *a, int *la, int iw[], int *liw,
 		    double *w, int *maxfrt, double *rhs, int *iw1,
 		    int *nsteps, int icntl[30], int info[20] );
-extern void MA27FACTORS( int *n, double a[], int *la, int iw[],
-                         int *liw, int *maxfrt,
-                         int iw2[], int *nblk, int *latop,
-                         int icntl[30], int colrhs[], int *nnzD,
-                         int id[], int jd[], double d[],
-                         int *nnzL, int il[], int jl[], double l[] );
-extern void MA27QDEMASC( int *n, int iw[], int *liwm1, int iw2[],
-                         int *nblk, int *latop, int icntl[30] );
+//extern void MA27FACTORS( int *n, double a[], int *la, int iw[],
+//                         int *liw, int *maxfrt,
+//                         int iw2[], int *nblk, int *latop,
+//                         int icntl[30], int colrhs[], int *nnzD,
+//                         int id[], int jd[], double d[],
+//                         int *nnzL, int il[], int jl[], double l[] );
+//extern void MA27QDEMASC( int *n, int iw[], int *liwm1, int iw2[],
+//                         int *nblk, int *latop, int icntl[30] );
 
 
 /* Interfaces to the above MA27 subroutines */
@@ -100,12 +100,5 @@ void        MA27_Finalize(      Ma27_Data *data );
 #define LIW_MIN    500
 #define PIV_MIN   -0.5
 #define PIV_MAX    0.5
-
-#define ERRQ(errcode,msg) {                                    \
-  printf( "Error:: Code = %d, Msg :: %s\n", errcode, msg );  \
-  printf( "Error occured in function %s, file %s at line %d\n",      \
-          __FUNCT__, __FILE__, __LINE__ );                           \
-  exit( errcode );                                                   \
-}
 
 #endif /* _MA27_H */

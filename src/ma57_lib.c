@@ -317,7 +317,7 @@ static int Process_Error_Code( Ma57_Data *ma57, int nerror ) {
     }
 
     LOGMSG("\n");
-    LOGMSG("         %-28s: %6i   %-28s: %6i\n",
+    LOGMSG("         %-23s: %6i   %-28s: %6i\n",
            "No. of 2x2 pivots"            , ma57->info[21],
            "Pivot step for modification"  , ma57->info[26]);
     LOGMSG("         %-28s: %6i   %-28s: %6i\n",

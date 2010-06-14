@@ -11,6 +11,16 @@
 extern "C" {   /* To prevent C++ compilers from mangling symbols */
 #endif
 
+  /*----------------------------------------------------------------------
+    --
+    -- Our very own dnrm_infty.
+    --*/
+
+  static double
+  cblas_dnrm_infty( const int N, const double *X, const int incX ) {
+    return fabs( X[ cblas_idamax( N, X, incX ) ] );
+  }
+
   /* ================================================================= */
 
 #ifdef  __FUNCT__

@@ -1,5 +1,4 @@
 #include "cblas.h"
-#include "glplib.h"
 #include "lbl.h"
 
 #define USE_27  lbl->lblsolver == 0
@@ -9,16 +8,6 @@
 extern "C" {   /* To prevent C++ compilers from mangling symbols */
 #endif
 
-  /*----------------------------------------------------------------------
-    --
-    -- Our very own dnrm_infty.
-    --*/
-
-  static double
-  cblas_dnrm_infty( const int N, const double *X, const int incX ) {
-    return fabs( X[ cblas_idamax( N, X, incX ) ] );
-  }
-
   /* ================================================================= */
 
 #ifdef  __FUNCT__
@@ -27,7 +16,7 @@ extern "C" {   /* To prevent C++ compilers from mangling symbols */
 #define __FUNCT__ "LBL_Initialize"
   LBL_Data *LBL_Initialize( int nz, int n, FILE *outfile, int lblsolver ) {
 
-      LBL_Data *lbl = ucalloc( 1, sizeof( LBL_Data ) );
+      LBL_Data *lbl = LBL_Calloc( 1, sizeof( LBL_Data ) );
       lbl->lblsolver = lblsolver;
 
       if (USE_27) {
@@ -116,7 +105,7 @@ extern "C" {   /* To prevent C++ compilers from mangling symbols */
           MA27_Finalize(lbl->ma27);
       if (USE_57)
           Ma57_Finalize(lbl->ma57);
-      ufree( lbl );
+      LBL_Free( lbl );
       return;
   }
 
