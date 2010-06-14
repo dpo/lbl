@@ -91,12 +91,19 @@ all:: liblbl
 
 liblbl:: $(LBL_LIBDIR)/liblbl.so
 
-$(LBL_LIBDIR)/liblbl.so:: $(LBL_DEPS) $(HSL_SRCS)
+$(LBL_LIBDIR)/liblbl.so:: $(LBL_DEPS) $(HSL_OBJS)
 	$(FCOMPILE) $(NOFORMAIN) $(F_SHAR_LIB) -o $@ $+ $(LIBBLAS) $(LIBLAPACK) $(LIBMETIS) $(FLIBS)
 
 ifeq ($(strip $(PLATFORM)),Mac)
 liblbl:: $(LBL_LIBDIR)/liblbl.dylib
 endif
+
+######################################################################
+
+example:: $(TOP)/example/example
+
+$(TOP)/example/example: $(TOP)/example/example.c
+	$(CCOMPILE) -o $@ $< -L$(TOP)/lib -llbl
 
 ######################################################################
 
