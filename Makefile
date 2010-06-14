@@ -1,25 +1,6 @@
-# Specify location of MA27, MA57 and METIS.
+include make.inc
 
-HSL_DIR  = ext
-LIBMETIS  = -L${HOME}/lib -lmetis
-
-# On OSX, leave LIBBLAS and LIBLAPACK blank to use Accelerate.
-
-LIBBLAS   = #-lblas
-LIBLAPACK = #-llapack
-
-# Specify compiler and options.
-
-FC = gfortran
-FFLAGS = -g #-O2
-NOFORMAIN = #-nofor_main
-F_SHAR_LIB = -shared
-FLIBS =
-CC = gcc
-CFLAGS = -g #-O2
-CLIBS =
-
-# There is nothing to customize beyond this point.
+# There is nothing to customize in this file. Customize make.inc.
 
 # See if we are running on Mac.
 ifneq ($(strip $(shell uname -a | grep -i 'darwin')),)
@@ -55,7 +36,7 @@ endif
 
 .SUFFIXES: .c .f
 
-.PHONY: all clean veryclean mrclean distclean purge
+.PHONY: all clean veryclean mrclean distclean purge example
 
 $(LBL_OBJDIR)/%.o: %.c
 	$(CCOMPILE) -o $@ -c $<
