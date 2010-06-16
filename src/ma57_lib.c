@@ -441,8 +441,8 @@ static int Process_Error_Code( Ma57_Data *ma57, int nerror ) {
     LBL_Free( ma57->ifact );
     LBL_Free( ma57->work );
     if( ma57->residual ) LBL_Free(ma57->residual);
-    free(ma57);
     LOGMSG( " done.\n" );
+    free(ma57);
     return;
   }
 

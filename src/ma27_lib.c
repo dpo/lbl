@@ -370,6 +370,7 @@ static int Process_Error_Code( Ma27_Data *ma27, int nerror ) {
     LBL_Free( ma27->residual );
     LBL_Free( ma27->w   );
     free( ma27 );
+    PRINT( " done\n" );
 
     return;
   }
