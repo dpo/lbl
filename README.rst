@@ -4,6 +4,9 @@ LBL: C wrapper around MA27 and MA57
 
 :Author: Dominique Orban <dominique.orban@gerad.ca>
 
+LBL is a unified C interface to the multifrontal symmetric indefinite linear
+system solvers MA27 and MA57 from the Harwell Subroutine Library.
+
 Example
 =======
 
@@ -11,11 +14,11 @@ Here are the essential bits of a typical example (see `examples/examples.c`
 for the complete code)::
 
     #include "lbl.h"
-    LBL_Data *lbl;      // Main data structure.
+    LBL_Data *lbl;           // Main data structure.
     lbl = LBL_Initialize(nnz, n, stderr, 1);
-    LBL_Analyze(lbl, 0);
-    LBL_Factorize(lbl, val);
-    LBL_Solve(lbl, rhs);
+    LBL_Analyze(lbl, 0);     // 0 = automatic pivot choice.
+    LBL_Factorize(lbl, val); // val is an array of doubles.
+    LBL_Solve(lbl, rhs);     // rhs is an array of doubles.
     LBL_Finalize(lbl);
 
 Installing LBL
