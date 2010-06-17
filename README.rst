@@ -4,6 +4,20 @@ LBL: C wrapper around MA27 and MA57
 
 :Author: Dominique Orban <dominique.orban@gerad.ca>
 
+Example
+=======
+
+Here are the essential bits of a typical example (see `examples/examples.c`
+for the complete code)::
+
+    #include "lbl.h"
+    LBL_Data *lbl;      // Main data structure.
+    lbl = LBL_Initialize(nnz, n, stderr, 1);
+    LBL_Analyze(lbl, 0);
+    LBL_Factorize(lbl, val);
+    LBL_Solve(lbl, rhs);
+    LBL_Finalize(lbl);
+
 Installing LBL
 ==============
 
