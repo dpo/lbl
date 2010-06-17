@@ -57,4 +57,13 @@ The expected output is::
    Solution:
    1.000000 2.000000 3.000000 4.000000 5.000000
 
+
+Bugs, Comments, Feature Requests
+================================
+
+Please send bugs, comments, feature requests, test cases, chocolate and coffee
+to the `Lighthouse LBL page
+<http://pykrylov.lighthouseapp.com/projects/54633-lbl>`_.
+
+
 Enjoy!
