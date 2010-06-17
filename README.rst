@@ -2,7 +2,7 @@
 LBL: C wrapper around MA27 and MA57
 ===================================
 
-:Author: D. Orban <dominique.orban@gerad.ca>
+:Author: Dominique Orban <dominique.orban@gerad.ca>
 
 Installing LBL
 ==============
