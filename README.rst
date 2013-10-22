@@ -67,3 +67,9 @@ to the `Lighthouse LBL page
 
 
 Enjoy!
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/dpo/lbl/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
